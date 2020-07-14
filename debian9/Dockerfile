@@ -8,6 +8,6 @@ EXPOSE 22/tcp
 
 CMD mkdir -p $CI_PROJECT_DIR/temp/debian9/root && \
     cp /root/key $CI_PROJECT_DIR/temp/debian9/root && \
-    chmod 0777 $CI_PROJECT_DIR/temp/debian9/root/key && \
     ln -s $CI_PROJECT_DIR/temp/host_test/home /home && \
+    chmod -R 0777 $CI_PROJECT_DIR/temp/debian9 && \
     /usr/sbin/sshd -D
