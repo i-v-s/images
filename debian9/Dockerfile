@@ -2,7 +2,7 @@ FROM debian:9
 
 RUN apt update -y && apt install -y python3 openssh-server && mkdir /run/sshd && \
     rmdir /home && mkdir /root/.ssh && ssh-keygen -t ed25519 -f /root/key -q -N "" && \
-    cat /root/key.pub > /root/.ssh/authorized_keys
+    cat /root/key.pub > /root/.ssh/authorized_keys && echo "root:test"|chpasswd
 
 EXPOSE 22/tcp
 
